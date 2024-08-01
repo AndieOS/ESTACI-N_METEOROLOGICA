@@ -123,14 +123,14 @@ def update_gauges_graphs(_):
     
     # Define variable properties
     variables = {
-        'temperaturaaire': {'name': 'Temperatura Aire', 'range': [-50, 100], 'unit': '°C', 'colors': {'normal': 'yellow', 'warning': 'orange', 'danger': 'red'}, 'icon': '/assets/temperature_icon.png'},
-        'humedadaire': {'name': 'Humedad Aire', 'range': [0, 100], 'unit': '%', 'colors': {'normal': 'lightblue', 'warning': 'cyan', 'danger': 'blue'}, 'icon': '/assets/humidity_icon.png'},
-        'intensidadluz': {'name': 'Intensidad Luz', 'range': [0, 100000], 'unit': 'lux', 'colors': {'normal': 'cyan', 'warning': 'lightgreen', 'danger': 'yellow'}, 'icon': '/assets/light_icon.png'},
-        'indiceuv': {'name': 'Índice UV', 'range': [0, 30], 'unit': '', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'orange'}, 'icon': '/assets/uv_icon.png'},
-        'velocidadviento': {'name': 'Velocidad Viento', 'range': [0, 40], 'unit': 'm/s', 'colors': {'normal': 'lightblue', 'warning': 'green', 'danger': 'yellow'}, 'icon': '/assets/wind_speed_icon.png'},
-        'direccionviento': {'name': 'Dirección Viento', 'range': [0, 360], 'unit': '°', 'colors': {'normal': 'darkblue', 'warning': 'lightgreen', 'danger': 'orange'}, 'icon': '/assets/wind_direction_icon.png'},
-        'cantidadlluvia': {'name': 'Cantidad Lluvia', 'range': [0, 60], 'unit': 'mm/h', 'colors': {'normal': 'lightblue', 'warning': 'blue', 'danger': 'green'}, 'icon': '/assets/rain_icon.png'},
-        'presionbarometrica': {'name': 'Presión Barométrica', 'range': [70, 110000], 'unit': '0.01hPa', 'colors': {'normal': 'darkblue', 'warning': 'blue', 'danger': 'green'}, 'icon': '/assets/pressure_icon.png'}
+        'temperaturaaire': {'name': 'Temperatura Aire', 'range': [-50, 100], 'unit': '°C', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'red'}, 'icon': '/assets/temperature_icon.png'},
+        'humedadaire': {'name': 'Humedad Aire', 'range': [0, 100], 'unit': '%', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'red'}, 'icon': '/assets/humidity_icon.png'},
+        'intensidadluz': {'name': 'Intensidad Luz', 'range': [0, 100000], 'unit': 'lux', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'red'}, 'icon': '/assets/light_icon.png'},
+        'indiceuv': {'name': 'Índice UV', 'range': [0, 30], 'unit': '', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'red'}, 'icon': '/assets/uv_icon.png'},
+        'velocidadviento': {'name': 'Velocidad Viento', 'range': [0, 40], 'unit': 'm/s', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'red'}, 'icon': '/assets/wind_speed_icon.png'},
+      # 'direccionviento': {'name': 'Dirección Viento', 'range': [0, 360], 'unit': '°', 'colors': {'normal': 'darkblue', 'warning': 'lightgreen', 'danger': 'orange'}, 'icon': '/assets/wind_direction_icon.png'},
+        'cantidadlluvia': {'name': 'Cantidad Lluvia', 'range': [0, 60], 'unit': 'mm/h', 'colors': {'normal': 'green', 'warning': 'yellow', 'danger': 'red'}, 'icon': '/assets/rain_icon.png'},
+      # 'presionbarometrica': {'name': 'Presión Barométrica', 'range': [70, 110000], 'unit': '0.01hPa', 'colors': {'normal': 'darkblue', 'warning': 'blue', 'danger': 'green'}, 'icon': '/assets/pressure_icon.png'}
     }
     
     gauges_graphs = []
@@ -181,13 +181,7 @@ def update_gauges_graphs(_):
                 color = props['colors']['danger']
             else:
                 color = props['colors']['normal'] 
-        elif variable == 'presionbarometrica':
-            if last_value < 10300:  # Ejemplo de valor alto
-                color = props['colors']['warning']
-            elif last_value > 10300:  # Ejemplo de valor extremo
-                color = props['colors']['danger']
-            else:
-                color = props['colors']['normal'] 
+
 
        
         
@@ -260,9 +254,9 @@ def update_custom_graph(selected_vars, start_date, end_date):
         'intensidadluz': {'name': 'Intensidad Luz', 'color': 'orange', 'unit': 'lux'},
         'indiceuv': {'name': 'Índice UV', 'color': 'purple', 'unit': ''},
         'velocidadviento': {'name': 'Velocidad Viento', 'color': 'green', 'unit': 'km/h'},
-        'direccionviento': {'name': 'Dirección Viento', 'color': 'red', 'unit': '°'},
+       #'direccionviento': {'name': 'Dirección Viento', 'color': 'red', 'unit': '°'},
         'cantidadlluvia': {'name': 'Cantidad Lluvia', 'color': 'cyan', 'unit': 'mm'},
-        'presionbarometrica': {'name': 'Presión Barométrica', 'color': 'magenta', 'unit': 'hPa'}
+      # 'presionbarometrica': {'name': 'Presión Barométrica', 'color': 'magenta', 'unit': 'hPa'}
     }
     
     fig = go.Figure()
@@ -337,3 +331,4 @@ def update_custom_graph(selected_vars, start_date, end_date):
 
 if __name__ == '__main__':
     server.run(debug=True)
+
